@@ -1,0 +1,32 @@
+<div class="tabela-container">
+  <h1>Configurações de Perfis</h1>
+  <button class="btn btn-success mb-3" (click)="criarPerfil()">Criar Novo Perfil</button>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Perfil</th>
+        <th>Permissões</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let perfil of perfis">
+        <td>{{ perfil.nome }}</td>
+        <td>
+          <ul class="list-unstyled">
+            <li *ngFor="let permissao of perfil.permissoes">{{ permissao }}</li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn btn-primary me-2" (click)="editarPerfil(perfil)">
+            <i class="fas fa-edit"></i> Editar
+          </button>
+          <button class="btn btn-danger" (click)="deletarPerfil(perfil)">
+            <i class="fas fa-trash-alt"></i> Deletar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+<div class="tabela-container">
+  <h1>Usuários Cadastrados</h1>
+  <button class="btn btn-success mb-3" (click)="navegarParaCadastro()">Novo Usuário</button>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Perfil</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.sobrenome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.perfil }}</td>
+        <td>
+          <div class="button-container">
+            <button class="btn btn-primary me-2" (click)="editarUsuario(usuario)">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn btn-danger" (click)="excluirUsuario(usuario)">
+              <i class="fas fa-trash-alt"></i> Excluir
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

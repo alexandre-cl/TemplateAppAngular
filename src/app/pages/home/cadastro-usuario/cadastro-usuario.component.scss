@@ -1,0 +1,20 @@
+:host {
+    display: block;
+    background-color: #12283f;
+    min-height: 100vh;
+}
+
+.btn-primary {
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+}
+
+.btn:disabled {
+    background-color: #b7c6bb;
+    border-color: #b7c6bb;;
+}
+
+.card {
+    border-radius: 0.5rem;
+    border-color: rgb(137, 137, 137);
+}

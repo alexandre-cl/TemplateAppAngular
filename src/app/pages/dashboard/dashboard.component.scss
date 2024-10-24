@@ -1,0 +1,120 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Garante que o container ocupe a altura total da viewport */
+
+  .sidebar {
+    width: 220px; /* Largura da sidebar */
+    background-color: #03172b; /* Azul bem escuro */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    display: flex;
+    flex-direction: column; /* Alinha os itens na coluna */
+    height: 100vh; /* Ocupa a altura total da viewport */
+  
+    h2 {
+      margin-bottom: 20px;
+      color: #ffffff; /* Cor do texto do título */
+    }
+  
+    ul {
+      list-style-type: none;
+      padding: 0;
+  
+      li {
+        margin: 10px 0;
+  
+        a {
+          text-decoration: none;
+          color: #ffffff; /* Cor do texto dos itens */
+          display: block; // Garante que o link ocupe todo o espaço
+          position: relative;
+  
+          .menu-item-container {
+            padding: 10px 15px; // Espaço ao redor do texto
+            border-radius: 4px; // Bordas arredondadas
+            transition: background-color 0.3s ease; // Suaviza a transição
+            background-color: transparent; // Fundo transparente por padrão
+  
+            &:hover {
+              background-color: rgba(243, 243, 243, 0.3); // Efeito de "acender" em cinza
+            }
+  
+            &.active {
+              background-color: rgba(243, 243, 243, 0.3); // Efeito quando ativo
+            }
+          }
+        }
+      }
+    }
+
+    .logout-button {
+      margin-top: auto; /* Empurra o botão para a parte inferior */
+      background-color: #a83e49; /* Vermelho para o logout */
+      color: #ffffff; /* Texto branco */
+      border: none; /* Remove borda */
+      padding: 10px; /* Adiciona padding */
+      cursor: pointer; /* Muda o cursor para pointer */
+      border-radius: 4px; /* Bordas arredondadas */
+      display: flex; /* Usar flexbox para alinhar o ícone e texto */
+      align-items: center; /* Alinha verticalmente o conteúdo */
+      width: 100%; /* Para ocupar toda a largura */
+
+      i {
+        margin-right: 8px; /* Espaço entre o ícone e o texto */
+        font-size: 1.2rem; /* Tamanho do ícone */
+      }
+    
+      &:hover {
+        background-color: darken(#993841, 10%); /* Escurece o vermelho ao passar o mouse */
+      }
+    }
+  }
+
+  .content {
+    flex-grow: 1; /* O conteúdo ocupa o restante da largura */
+    padding: 20px;
+    background-color: #f8f9fa; /* Fundo claro para o conteúdo */
+    color: #333; /* Texto escuro para o conteúdo */
+  }
+}
+
+.menu-item-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; 
+  border-radius: 4px; 
+  transition: background-color 0.3s ease; 
+  background-color: transparent; 
+
+  .menu-icon {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px; 
+    font-size: 1rem; /* Tamanho reduzido do ícone */
+    color: #ffffff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+
+  .menu-item {
+    flex-grow: 1; 
+  }
+}
+
+.menu-title {
+  background-color: #d3d3d3; /* Cinza claro */
+  padding: 10px; /* Espaço ao redor do título */
+  border-radius: 4px; /* Bordas arredondadas */
+  margin-bottom: 15px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+  
+  h2 {
+    margin: 0; /* Remove margens do título */
+    color: #333; /* Cor do texto */
+    font-size: 1.5rem; /* Tamanho do texto */
+  }
+}
+
+
+

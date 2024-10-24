@@ -1,0 +1,11 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <div *ngIf="notificacao" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <strong class="me-auto">Atenção!</strong>
+      <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="notificacao = null"></button>
+    </div>
+    <div class="toast-body">
+      {{ notificacao }}
+    </div>
+  </div>
+</div>

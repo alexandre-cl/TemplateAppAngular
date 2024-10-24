@@ -1,0 +1,172 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card p-4" style="width: 100%; max-width: 600px;">
+      <div class="card-block">
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+          <h1>Cadastro</h1>
+          <p class="text-muted">Crie sua conta</p>
+          <div class="row">
+            <div class="col-6">
+              <label for="nome">Nome</label>
+              <input 
+                id="nome"
+                type="text"
+                class="form-control"
+                name="nome"
+                [(ngModel)]="nome"
+                (blur)="validarNome()"
+                required
+                #nomeField="ngModel"
+              >
+              <small *ngIf="nomeInvalido && (nomeField.dirty || nomeField.touched)" class="text-danger">
+                * Nome inválido
+              </small>
+            </div>
+            <div class="col-6">
+              <label for="sobrenome">Sobrenome</label>
+              <input 
+                id="sobrenome"
+                type="text"
+                class="form-control"
+                name="sobrenome"
+                [(ngModel)]="sobrenome"
+                (blur)="validarSobrenome()"
+                required
+                #sobrenomeField="ngModel"
+              >
+              <small *ngIf="sobrenomeInvalido && (sobrenomeField.dirty || sobrenomeField.touched)" class="text-danger">
+                * Sobrenome inválido
+              </small>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-6">
+              <label for="data-nascimento">Data de Nascimento</label>
+              <input 
+                id="data-nascimento"
+                type="date"
+                class="form-control"
+                name="dataNascimento"
+                [(ngModel)]="dataNascimento"
+                required
+                #dataNascimentoField="ngModel"
+              >
+              <small *ngIf="dataNascimentoField.invalid && (dataNascimentoField.dirty || dataNascimentoField.touched)" class="text-danger">
+                * Data de nascimento obrigatória
+              </small>
+            </div>
+            <div class="col-6">
+              <label for="sexo">Sexo</label>
+              <select 
+                id="sexo"
+                class="form-control"
+                name="sexo"
+                [(ngModel)]="sexo"
+                required
+                #sexoField="ngModel"
+              >
+                <option value="" disabled selected>Selecione seu sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+              </select>
+              <small *ngIf="sexoField.invalid && (sexoField.dirty || sexoField.touched)" class="text-danger">
+                * Sexo obrigatório
+              </small>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-6">
+              <label for="cpf">CPF</label>
+              <input 
+                id="cpf"
+                type="text"
+                class="form-control"
+                name="cpf"
+                [(ngModel)]="cpf"
+                (blur)="validarCPF()"
+                required
+                #cpfField="ngModel"
+              >
+              <small *ngIf="cpfInvalido && (cpfField.dirty || cpfField.touched)" class="text-danger">
+                * CPF inválido
+              </small>
+            </div>
+            <div class="col-6">
+              <label for="email">Email</label>
+              <input 
+                id="email"
+                type="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="email"
+                (input)="validarEmail()"
+                required
+                #emailField="ngModel"
+              >
+              <small *ngIf="emailInvalido && (emailField.dirty || emailField.touched)" class="text-danger">
+                * Email inválido
+              </small>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-6">
+              <label for="senha">Senha</label>
+              <input 
+                id="senha"
+                type="password"
+                class="form-control"
+                name="senha"
+                [(ngModel)]="senha"
+                required
+                (input)="validarSenha()"
+                #senhaField="ngModel"
+              >
+              <small *ngIf="senhaField.invalid && (senhaField.dirty || senhaField.touched)" class="text-danger">
+                * Senha inválida (Mínimo 8 caracteres e deve ter maiúscula, mínuscula, número e símbolo)
+              </small>
+            </div>
+            <div class="col-6">
+              <label for="confirmar-senha">Confirmar Senha</label>
+              <input 
+                id="confirmar-senha"
+                type="password"
+                class="form-control"
+                name="confirmarSenha"
+                [(ngModel)]="confirmarSenha"
+                required
+                (blur)="validarCampos()"
+                #confirmarSenhaField="ngModel"
+              >
+              <small *ngIf="confirmacaoIncorreta && confirmarSenhaField.invalid && (confirmarSenhaField.dirty || confirmarSenhaField.touched)" class="text-danger">
+                * Senhas não coincidem
+              </small>
+            </div>
+          </div>
+  
+          <div class="row mt-3 justify-content-center">
+            <div class="col-auto">
+              <button 
+                type="submit"
+                (click)="cadastrar()"
+                class="btn btn-primary w-100 mb-2"
+                [disabled]="carregando || f.invalid"
+              >
+                {{carregando ? "Aguarde..." : "Cadastrar"}}
+              </button>
+              <button 
+                    routerLink="/" 
+                    type="button" 
+                    class="btn btn-danger w-100"
+                  >
+                    Voltar
+                  </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

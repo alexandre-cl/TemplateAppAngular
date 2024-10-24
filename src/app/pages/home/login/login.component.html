@@ -1,0 +1,101 @@
+<div class="flex-row align-items-center login">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4"> <!-- Ajustando a largura do card -->
+        <div class="card p-4">
+          <div class="card-block">
+            <form #f="ngForm" (ngSubmit)="onSubmit()">
+              <div class="card-text-align">
+                <h1>Login</h1>
+                <p class="text-muted">Faça login em sua conta</p>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="user-login">Email</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <i class="bi bi-person"></i>
+                    </span>
+                    <input 
+                      id="user-login"
+                      type="text"
+                      class="form-control"
+                      (blur)="validaEmail()"
+                      name="login"
+                      [(ngModel)]="email"
+                    >
+                  </div>
+                  <small 
+                    *ngIf="emailInvalido"
+                    class="text-danger"
+                  >
+                    * Email inválido
+                  </small>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label for="user-senha">Senha</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <i class="bi bi-lock"></i>
+                    </span>
+                    <input
+                      id="user-senha"
+                      [type]="senhaVisible ? 'text' : 'password'"
+                      class="form-control"
+                      name="senha"
+                      (input)="validaSenha()"
+                      [(ngModel)]="senha"
+                    >
+                    <button class="btn btn-outline-secondary" type="button" (click)="toggleSenhaVisibility()">
+                      <i class="bi" [ngClass]="!senhaVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </button>
+                  </div>
+                  <small 
+                    *ngIf="senhaVazia"
+                    class="text-danger"
+                  >
+                    * Senha obrigatória
+                  </small>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <button 
+                    type="submit"
+                    class="btn btn-primary w-100 mb-2"
+                    [disabled]="carregando"
+                    (click)="validaCampos()"
+                  >
+                    {{carregando ? "Aguarde..." : "Entrar"}}
+                  </button>
+                  <button 
+                    routerLink="/cadastro-usuario" 
+                    type="button" 
+                    class="btn btn-success w-100"
+                  >
+                    Cadastrar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div *ngIf="notificacao" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-danger text-white">
+        <strong class="me-auto">Atenção!</strong>
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="notificacao = null"></button>
+      </div>
+      <div class="toast-body">
+        {{ notificacao }}
+      </div>
+    </div>
+  </div>
+</div>

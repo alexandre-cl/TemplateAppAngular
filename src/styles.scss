@@ -1,0 +1,95 @@
+// .tabela-container {
+//   padding: 20px;
+//   background-color: #ffffff; /* Fundo claro da área da tabela */
+
+//   h1 {
+//     color: #333333; /* Título em cinza escuro */
+//     margin-bottom: 20px;
+//   }
+
+//   button {
+//     background-color: #007bff; /* Azul padrão para botões */
+//     color: #ffffff; /* Texto em branco */
+//     border: none;
+//     border-radius: 4px; /* Bordas arredondadas */
+//     padding: 10px 15px; /* Espaçamento interno */
+//     cursor: pointer;
+//     transition: background-color 0.3s ease;
+//     margin-bottom: 20px; /* Espaço abaixo do botão */
+
+//     &:hover {
+//       background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+//     }
+//   }
+
+//   table {
+//     width: 100%;
+//     border-collapse: collapse;
+
+//     th, td {
+//       border: 1px solid #ddd; /* Borda clara para a tabela */
+//       padding: 8px;
+//       text-align: left;
+//       color: #333333; /* Texto em cinza escuro */
+//     }
+
+//     th {
+//       background-color: #f2f2f2; /* Fundo claro para cabeçalhos */
+//       color: #333333; /* Texto em cinza escuro para cabeçalhos */
+//     }
+
+//     tr:hover {
+//       background-color: #f1f1f1; /* Fundo claro ao passar o mouse */
+//     }
+//   }
+
+//   .button-container {
+//     display: flex; /* Alinha os botões em linha */
+//     gap: 10px; /* Espaçamento entre os botões */
+//   }
+
+//   .edit-button {
+//     background-color: #007bff; /* Azul */
+//     color: white;
+//     border: none;
+//     padding: 5px 10px;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+
+//     i {
+//       margin-right: 5px; /* Espaço entre o ícone e o texto */
+//     }
+
+//     &:hover {
+//       background-color: #0056b3; /* Azul escuro ao passar o mouse */
+//     }
+//   }
+
+//   .delete-button {
+//     background-color: #dc3545; /* Vermelho */
+//     color: white;
+//     border: none;
+//     padding: 5px 10px;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     display: flex;
+//     align-items: center;
+
+//     i {
+//       margin-right: 5px; /* Espaço entre o ícone e o texto */
+//     }
+
+//     &:hover {
+//       background-color: #c82333; /* Vermelho escuro ao passar o mouse */
+//     }
+//   }
+// }
+.tabela-container {
+  background-color: #ffffff; /* Fundo da tabela */
+  
+  h1 {
+    color: #333333; /* Cor do título */
+  }
+}

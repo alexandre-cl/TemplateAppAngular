@@ -1,0 +1,48 @@
+<div class="perfil-container">
+    <h1 class="text-center">{{ perfil?.nome ? 'Editar Perfil' : 'Criar Novo Perfil' }}</h1>
+    <form (ngSubmit)="salvarPerfil()" class="mt-4">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Perfil:</label>
+        <input type="text" 
+               [(ngModel)]="perfilNome" 
+               name="nome" 
+               required 
+               class="form-control w-50" 
+               id="nome">
+      </div>
+  
+      <h3>Permissões:</h3>
+      <div class="mb-3">
+        <div *ngFor="let permissao of todasPermissoes" class="form-check">
+          <input 
+            type="checkbox" 
+            [checked]="perfil?.permissoes?.includes(permissao)" 
+            (change)="togglePermissao(permissao, $event)" 
+            class="form-check-input" 
+            id="{{ permissao }}">
+          <label class="form-check-label" for="{{ permissao }}">
+            {{ permissao }}
+          </label>
+        </div>
+      </div>
+  
+      <div class="d-flex">
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-danger ms-2" (click)="router.navigate(['/dashboard/configuracoes'])">Cancelar</button>
+      </div>
+    </form>
+  
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div *ngIf="notificacao" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger text-white">
+          <strong class="me-auto">Atenção!</strong>
+          <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="notificacao = null"></button>
+        </div>
+        <div class="toast-body">
+          {{ notificacao }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

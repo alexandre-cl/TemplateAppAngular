@@ -1,0 +1,58 @@
+<div class="tabela-container">
+  <h1>{{ isEditMode ? 'Editar Usuário' : 'Novo Usuário' }}</h1>
+  <form (ngSubmit)="onSubmit()" class="p-4">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="nome" name="nome" maxlength="15" required />
+        <div *ngIf="nomeInvalido" class="text-danger">Nome inválido.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="sobrenome" class="form-label">Sobrenome:</label>
+        <input type="text" class="form-control" id="sobrenome" [(ngModel)]="sobrenome" name="sobrenome" maxlength="15" required />
+        <div *ngIf="sobrenomeInvalido" class="text-danger">Sobrenome inválido.</div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required />
+        <div *ngIf="emailInvalido" class="text-danger">Email inválido.</div>
+        <div *ngIf="usuarioJaExiste" class="text-danger">Usuário já existe!</div>
+      </div>
+      <div class="col-md-6">
+        <label for="cpf" class="form-label">CPF:</label>
+        <input type="text" class="form-control" id="cpf" [(ngModel)]="cpf" name="cpf" maxlength="11" required />
+        <div *ngIf="cpfInvalido" class="text-danger">CPF inválido.</div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="senha" class="form-label">Senha:</label>
+        <input type="password" class="form-control" id="senha" [(ngModel)]="senha" name="senha" required />
+        <div *ngIf="senhaInvalida" class="text-danger">Senha inválida.</div>
+      </div>
+      <div class="col-md-6">
+        <label for="confirmarSenha" class="form-label">Confirmar Senha:</label>
+        <input type="password" class="form-control" id="confirmarSenha" [(ngModel)]="confirmarSenha" name="confirmarSenha" required />
+        <div *ngIf="confirmacaoIncorreta" class="text-danger">As senhas não coincidem.</div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="perfil" class="form-label">Perfil:</label>
+        <select class="form-select" [(ngModel)]="perfil" name="perfil" required>
+          <option *ngFor="let p of perfis" [value]="p.nome">{{ p.nome }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <button type="submit" class="btn btn-success" [disabled]="carregando">Salvar</button>
+      <button type="button" class="btn btn-danger ms-2" (click)="router.navigate(['/dashboard/usuarios'])">Cancelar</button>
+    </div>
+  </form>
+</div>

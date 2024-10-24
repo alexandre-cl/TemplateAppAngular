@@ -1,0 +1,41 @@
+<div class="dashboard-container">
+    <div class="sidebar">
+      <div class="">
+        <h2>Menu</h2>
+      </div>
+      <ul>
+        <li>
+            <a routerLink="home" [routerLinkActive]="['active']">
+              <div class="menu-item-container">
+                <span class="menu-icon"><i class="fas fa-house"></i></span>
+                <span class="menu-item">Home</span>
+              </div>
+            </a>
+        </li>
+        <li *ngIf="canManageUsers()">
+          <a routerLink="usuarios" [routerLinkActive]="['active']">
+            <div class="menu-item-container">
+              <span class="menu-icon"><i class="fas fa-users"></i></span>
+              <span class="menu-item">Usuários</span>
+            </div>
+          </a>
+        </li>
+        <li *ngIf="canManageConfigurations()">
+          <a routerLink="configuracoes" [routerLinkActive]="['active']">
+            <div class="menu-item-container">
+              <span class="menu-icon"><i class="fas fa-cog"></i></span>
+              <span class="menu-item">Configurações</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <button class="logout-button" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
